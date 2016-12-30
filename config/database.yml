@@ -1,0 +1,14 @@
+# @José Bonnet
+#
+development: &common_settings
+  adapter: sqlite3
+  encoding: unicode
+  database: snippet_development.sqlite3
+
+test:
+  <<: *common_settings
+  database: snippet_test.sqlite3
+
+production:
+  <<: *common_settings
+  database: snippet_production.sqlite3

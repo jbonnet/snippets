@@ -1,0 +1,5 @@
+log/*
+Gemfile.lock
+.DS_Store
+.bundle/*
+public/files/*
