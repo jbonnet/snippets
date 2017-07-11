@@ -1,7 +1,10 @@
 # Snippets
 > snippet |ˈsnɪpɪt| (noun): a small piece or brief extract -- _snippets of information about the war_.
 
-# Ideas
+## User stories
+Check the [wiki user stories](|wiki user stories).
+
+## Ideas
 
 1. Could `snippets` be **e-mail messages**?
     * **Cons:** clutter!
