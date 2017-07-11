@@ -4,5 +4,5 @@
 # Ideas
 
 1. Could `snippets` be **e-mail messages**?
-  * **Cons:** clutter!
+    * **Cons:** clutter!
 1. Could we reuse the [Single file Rails applications](https://christoph.luppri.ch/articles/2017/06/26/single-file-rails-applications-for-fun-and-bug-reporting/) idea?
