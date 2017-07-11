@@ -2,7 +2,7 @@
 > snippet |ˈsnɪpɪt| (noun): a small piece or brief extract -- _snippets of information about the war_.
 
 ## User stories
-Check the [wiki user stories](|wiki user stories).
+Check the [wiki user stories](https://github.com/jbonnet/snippets/wiki/User-Stories).
 
 ## Ideas
 
