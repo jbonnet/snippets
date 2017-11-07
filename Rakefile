@@ -1,7 +1,6 @@
 require 'rspec/core/rake_task'
-require 'ci/reporter/rake/rspec'
 require 'sinatra/activerecord/rake'
-require './gtk_srv'
+require './snippets'
 
 task default: ['ci:all']
 
@@ -10,13 +9,3 @@ RSpec::Core::RakeTask.new :specs do |task|
   task.pattern = Dir['spec/**/*_spec.rb']
 end
 
-# use like in
-#   rake ci:all
-namespace :ci do
-  task all: ['ci:setup:rspec', 'specs']
-end
-
-desc 'Run the specs whenever a relevant file changes.'
-task :watch do
-  system 'watchr watch.rb'
-end

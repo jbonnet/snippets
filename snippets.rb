@@ -3,10 +3,6 @@
 ENV['RACK_ENV'] ||= 'production'
 
 require 'sinatra/base'
-require 'sinatra/json'
-require 'sinatra/config_file'
-require 'sinatra/cross_origin'
-require 'sinatra/reloader'
 require 'sinatra/activerecord'
 require 'sinatra/logger'
 
@@ -21,15 +17,9 @@ Bundler.require :default, ENV['RACK_ENV'].to_sym
 end
 
 class SnippetApp < Sinatra::Base
-  register Sinatra::ConfigFile
   register Sinatra::CrossOrigin
-  register Sinatra::Reloader
   register Sinatra::ActiveRecordExtension
   register Sinatra::Logger
-  
-  #helpers GtkSrvHelper
-  
-  MODULE=self.to_s
   
   set :root, File.dirname(__FILE__)
   set :public_folder, File.join(File.dirname(__FILE__), 'public')
@@ -51,5 +41,5 @@ class SnippetApp < Sinatra::Base
     
   enable :cross_origin
 
-  logger.info(MODULE) {"started at #{settings.time_at_startup}"}
+  logger.info("SnippetApp") {"started at #{settings.time_at_startup}"}
 end
