@@ -14,7 +14,7 @@ Check out the [wiki user stories](https://github.com/jbonnet/snippets/wiki/User-
 ## Implemented features
 Implemented features are the following:
 1. [Stores snippets](/stores-snippets);
-1. [User adds snippets](/add-snippets);
+1. [User adds a snippet](/user-adds-a-snippet);
 1. ...
 
 # Maintainers
