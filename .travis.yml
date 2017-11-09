@@ -4,8 +4,8 @@ rvm:
 env:
   - RACK_ENV=test
 before_script:
-  - cp config/database.travis.yml config/database.yml
-    #  - bundle exec rake db:create db:schema:load
+#  - cp config/database.travis.yml config/database.yml
+#  - bundle exec rake db:create db:schema:load
   - bundle exec rake db:create db:migrate
 script:
   - bundle exec rspec
