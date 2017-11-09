@@ -10,6 +10,7 @@ gem 'sqlite3'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'sinatra-logger'
+gem 'travis'
 
 group :test do
   gem 'webmock'
