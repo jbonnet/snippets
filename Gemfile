@@ -17,4 +17,5 @@ group :test do
   gem 'rspec-mocks'
   gem 'rack-test'
   gem 'capybara'
+  gem 'factory_bot'
 end

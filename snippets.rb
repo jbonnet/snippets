@@ -42,4 +42,9 @@ class SnippetApp < Sinatra::Base
   enable :cross_origin
 
   logger.info("SnippetApp") {"started at #{settings.time_at_startup}"}
+
+  private
+  def log_message
+    "#{self.class.name} #{request.env["REQUEST_METHOD"]} #{request.env["REQUEST_PATH"]}"
+  end
 end

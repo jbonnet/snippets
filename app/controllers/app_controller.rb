@@ -1,9 +1,15 @@
 # © José Bonnet
+require 'json'
+
 class SnippetApp < Sinatra::Base
 
   get '/' do
-    method = "#{self.class.name} #{request.env["REQUEST_METHOD"]} #{request.env["REQUEST_PATH"]}"
-    logger.info(method) {'root accessed'}
+    logger.info(log_message) {'entered'}
     erb :index
+  end
+
+  post '/snippets' do
+    logger.info(log_message) {'entered'}
+    "Title is #{params[:title]}, body is #{params[:body]}"
   end
 end
