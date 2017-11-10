@@ -9,6 +9,7 @@ ENV['RACK_ENV'] ||= 'test'
 
 $: << File.expand_path('../..', __FILE__)
 require 'snippets'
+Dir[File.join(__dir__, "support/**/*.rb")].each { |f| require f }
 
 module RSpecMixin
   include Rack::Test::Methods

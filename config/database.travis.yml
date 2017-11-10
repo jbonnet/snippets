@@ -1,15 +1,5 @@
 # @José Bonnet
-#
-development: &common_settings
-  adapter: sqlite3
-  encoding: unicode
-  database: db/snippet_development.sqlite3
-
 test:
   adapter: sqlite3
   database: ":memory:"
   timeout: 500
-
-production:
-  <<: *common_settings
-  database: db/snippet_production.sqlite3
