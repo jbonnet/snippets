@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jbonnet/snippets.svg?branch=master)](https://travis-ci.org/jbonnet/snippets)
+
 # Snippets
 > snippet |ˈsnɪpɪt| (noun): a small piece or brief extract -- _snippets of information about the war_.
 
