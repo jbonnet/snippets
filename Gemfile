@@ -11,6 +11,13 @@ gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'sinatra-logger'
 gem 'travis'
+gem 'chillout'
+
+group :development, :test do
+  gem 'autotest'
+  gem 'autotest-growl'
+  gem 'autotest-fsevent'
+end
 
 group :test do
   gem 'webmock'

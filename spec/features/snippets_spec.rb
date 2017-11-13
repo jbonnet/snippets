@@ -13,6 +13,6 @@ RSpec.feature "Snippets", type: :feature do
     fill_in "Body", with: snippet.body
     click_button "Add snippet"
     
-    expect(page).to have_content "Title is #{snippet.title}, body is #{snippet.body}"
+    expect(page).to have_content "Saved with title #{snippet.title}, body #{snippet.body}"
   end
 end

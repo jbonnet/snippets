@@ -5,3 +5,7 @@
   <textarea id="body" name="body" placeholder="Snippet's body..." rows="10"></textarea>
   <input type="submit" value="Add snippet">
 </form>      
+<% @snippets.each do |snippet| %>
+  <h5><%= snippet.title %></h5>
+  <p><%= snippet.body %></p>
+<% end %>
