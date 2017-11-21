@@ -12,6 +12,7 @@ gem 'sinatra-activerecord'
 gem 'sinatra-logger'
 gem 'travis'
 gem 'chillout'
+gem 'sinatra-flash'
 
 group :development, :test do
   gem 'autotest'

@@ -5,6 +5,7 @@ class SnippetApp < Sinatra::Base
 
   get '/' do
     logger.info(log_message) {'entered'}
+    logger.info(log_message) {"session=#{session.inspect}"}
     @snippets = Snippet.order(updated_at: :desc)
     erb :index
   end
@@ -13,9 +14,12 @@ class SnippetApp < Sinatra::Base
     logger.info(log_message) {'entered'}
     @snippet = Snippet.create(title: params[:title], body: params[:body])
     if @snippet.save
-      "Saved with title #{params[:title]}, body #{params[:body]}"
+      session[:message] = "Snippet titled \"#{params[:title]}\" saved!"
+      logger.info(log_message) {"session=#{session.inspect}"}
     else
-      "Error saving!"
+      session[:message] = "Snippet titled \"#{params[:title]}\" NOT saved!"
+      logger.info(log_message) {"session=#{session.inspect}"}
     end   
+    redirect '/'
   end
 end

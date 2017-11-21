@@ -5,6 +5,7 @@ ENV['RACK_ENV'] ||= 'production'
 require 'sinatra/base'
 require 'sinatra/activerecord'
 require 'sinatra/logger'
+#require 'sinatra/sessions'
 
 # Require the bundler gem and then call Bundler.require to load in all gems listed in Gemfile.
 require 'bundler'
@@ -15,6 +16,7 @@ Bundler.require :default, ENV['RACK_ENV'].to_sym
     require file
   end
 end
+
 
 class SnippetApp < Sinatra::Base
   register Sinatra::CrossOrigin
@@ -28,8 +30,11 @@ class SnippetApp < Sinatra::Base
   set :time_at_startup, Time.now.utc
   set :environments, %w(development test production)
   set :environment, ENV['RACK_ENV'] || :development
-    
-  use Rack::Session::Cookie, :key => 'rack.session', :domain => 'foo.com', :path => '/', :expire_after => 2592000, :secret => '$0nata'
+
+  # Sessions
+  enable :sessions
+  #set :session_secret, '$nipp37'
+  #use Rack::Session::Cookie, :key => 'rack.session', :domain => 'foo.com', :path => '/', :expire_after => 2592000, :secret =>settings.session_secret
   
   # Logging
 	enable :logging

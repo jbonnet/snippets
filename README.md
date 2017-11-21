@@ -19,5 +19,17 @@ Implemented features are the following:
 1. [User adds a snippet](https://github.com/jbonnet/snippets/wiki/user-adds-a-snippet);
 1. ...
 
+# Usage
+
+Run with:
+```shell
+$ RACK_ENV=development bundle exec rackup
+```
+
+Test with:
+```shell
+$ RACK_ENV=test bundle exec rake
+```
+
 # Maintainers
 Any question, doubt, issue should be sent to **@jbonnet**.
