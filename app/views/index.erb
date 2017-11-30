@@ -1,22 +1,18 @@
 <form action="/snippets" method="post">
   <p>
-    <label for="title">Title</label>
     <input type="text" id="title" name="title" placeholder="Snipet's title...">
     <input type="submit" value="Add snippet">
   </p>
-  <p>
-    <label for="body">Body</label>
-    <textarea id="body" name="body" placeholder="Snippet's body..." rows="20" cols="60"></textarea>
-  </p>
+  <p><textarea id="body" name="body" placeholder="Snippet's body..." rows="10" cols="80"></textarea></p>
 </form>      
 <div class="list-group">
   <% @snippets.each do |snippet| %>
-  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-    <div class="d-flex w-100 justify-content-between">
-      <h5 class="mb-1"><%= snippet.title %></h5>
-      <small>3 days ago</small>
-    </div>
-    <p class="mb-1"><%= snippet.body %></p>
-  </a>
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><%= snippet.title %></h5>
+        <small>3 days ago</small>
+      </div>
+      <p class="mb-1"><%= snippet.body %></p>
+    </a>
   <% end %>
 </div>
