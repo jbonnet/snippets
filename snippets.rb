@@ -11,12 +11,11 @@ require 'sinatra/logger'
 require 'bundler'
 Bundler.require :default, ENV['RACK_ENV'].to_sym
 
-['app/helpers', 'app/controllers', 'app/models', 'app/views'].each do |dir|
+['app/commands', 'app/models', 'app/views'].each do |dir|
   Dir[File.join(File.dirname(__FILE__), dir, '**', '*.rb')].each do |file|
     require file
   end
 end
-
 
 class SnippetApp < Sinatra::Base
   register Sinatra::CrossOrigin
@@ -33,8 +32,6 @@ class SnippetApp < Sinatra::Base
 
   # Sessions
   enable :sessions
-  #set :session_secret, '$nipp37'
-  #use Rack::Session::Cookie, :key => 'rack.session', :domain => 'foo.com', :path => '/', :expire_after => 2592000, :secret =>settings.session_secret
   
   # Logging
 	enable :logging
@@ -48,6 +45,25 @@ class SnippetApp < Sinatra::Base
 
   logger.info("SnippetApp") {"started at #{settings.time_at_startup}"}
 
+  get '/' do
+    logger.info(log_message) {'entered'}
+    logger.info(log_message) {"session=#{session.inspect}"}
+    @snippets = ShowManySnippetsCommand.new.execute
+    erb :index
+  end
+
+  post '/snippets' do
+    logger.info(log_message) {'entered'}
+    @snippet = CreateSnippetCommand.new(title: params[:title], body: params[:body], logger: logger).execute
+    if @snippet
+      session[:message] = "Snippet titled \"#{params[:title]}\" saved!"
+      logger.info(log_message) {"session=#{session.inspect}"}
+    else
+      session[:message] = "Snippet titled \"#{params[:title]}\" NOT saved!"
+      logger.info(log_message) {"session=#{session.inspect}"}
+    end   
+    redirect '/'
+  end
   private
   def log_message
     "#{self.class.name} #{request.env["REQUEST_METHOD"]} #{request.env["REQUEST_PATH"]}"
