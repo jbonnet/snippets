@@ -3,7 +3,7 @@
     <input type="text" id="title" name="title" placeholder="Snipet's title...">
     <input type="submit" value="Add snippet">
   </p>
-  <p><textarea id="body" name="body" placeholder="Snippet's body..." rows="10" cols="80"></textarea></p>
+  <p><textarea id="body" data-autoresize name="body" placeholder="Snippet's body..." rows="10" cols="120"></textarea></p>
 </form>      
 <div class="list-group">
   <% @snippets.each do |snippet| %>
