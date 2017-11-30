@@ -9,7 +9,14 @@
     <textarea id="body" name="body" placeholder="Snippet's body..." rows="20" cols="60"></textarea>
   </p>
 </form>      
-<% @snippets.each do |snippet| %>
-  <h5><%= snippet.title %></h5>
-  <p><%= snippet.body %></p>
-<% end %>
+<div class="list-group">
+  <% @snippets.each do |snippet| %>
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1"><%= snippet.title %></h5>
+      <small>3 days ago</small>
+    </div>
+    <p class="mb-1"><%= snippet.body %></p>
+  </a>
+  <% end %>
+</div>
