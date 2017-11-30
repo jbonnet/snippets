@@ -1,6 +1,11 @@
 # create_snippet_command
 class CreateSnippetCommand
+
+  attr_accessor :title, :body
+
   def initialize(title: nil, body:, logger:)
+    message = "#{self.class.name}.initialize()"
+    logger.debug(message) {'entered'}
     @title = title if title
     @body = body
     @logger = logger
