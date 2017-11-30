@@ -2,13 +2,11 @@
   <p>
     <label for="title">Title</label>
     <input type="text" id="title" name="title" placeholder="Snipet's title...">
+    <input type="submit" value="Add snippet">
   </p>
   <p>
     <label for="body">Body</label>
     <textarea id="body" name="body" placeholder="Snippet's body..." rows="20" cols="60"></textarea>
-  </p>
-  <p>
-    <input type="submit" value="Add snippet">
   </p>
 </form>      
 <% @snippets.each do |snippet| %>
