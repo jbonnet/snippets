@@ -7,8 +7,8 @@ RSpec.feature "Snippets", type: :feature do
   scenario "user creates a new snippet" do
     snippet = FactoryBot.create(:snippet)
     visit '/'
-    fill_in "Title", with: snippet.title
-    fill_in "Body", with: snippet.body
+    fill_in "title", with: snippet.title
+    fill_in "body", with: snippet.body
     click_button "Add snippet"
     expect(page).to have_content "Snippet titled \"#{snippet.title}\" saved!"
   end
