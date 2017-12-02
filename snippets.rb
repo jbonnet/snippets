@@ -48,7 +48,7 @@ class SnippetApp < Sinatra::Base
   get '/' do
     logger.info(log_message) {'entered'}
     logger.info(log_message) {"session=#{session.inspect}"}
-    @snippets = ShowManySnippetsCommand.new(logger: logger).execute
+    @snippets = FetchManySnippetsCommand.new(logger: logger).execute
     erb :index
   end
 

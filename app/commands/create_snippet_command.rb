@@ -5,7 +5,9 @@ class CreateSnippetCommand
 
   def initialize(title: nil, body:, logger:)
     message = "#{self.class.name}.initialize()"
+    raise ArgumentError.new('Snippet creation must have a logger') if logger.nil?
     logger.debug(message) {'entered'}
+    raise ArgumentError.new('Snippets must have a body') if body.nil?
     @title = title if title
     @body = body
     @logger = logger
